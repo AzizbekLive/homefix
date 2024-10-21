@@ -23,6 +23,9 @@ dependencies:
   #local db
   shared_preferences: ^2.3.2
 
+  #responsive_ui:
+  flutter_screenutil: ^5.9.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
