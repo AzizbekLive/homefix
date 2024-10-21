@@ -15,6 +15,7 @@ dependencies:
 
   #state managemant
   flutter_bloc: ^8.1.6
+  provider: ^6.0.5
 
   #generator
   freezed: ^2.5.2
@@ -32,6 +33,17 @@ dependencies:
   #svg
   flutter_svg: ^2.0.10+1
 
+  #calendar_table
+  table_calendar: ^3.1.2
+  intl:
+
+  #localization
+  easy_localization: ^3.0.0
+
+  #uuid
+  uuid: ^3.0.5
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -45,6 +57,10 @@ flutter:
 
   assets:
      - assets/svg/
+     - lib/intl/
+     - lib/intl/ru/symbols/
+     - assets/intl/
+     - assets/intl/
   #   - images/a_dot_ham.jpeg
 
   fonts:
