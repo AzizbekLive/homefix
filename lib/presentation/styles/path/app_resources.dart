@@ -9,5 +9,6 @@ class AppResources {
   static String svgChat36 = "assets/svg/chat_36.svg";
   static String svgProfile24 = "assets/svg/profile_24.svg";
   static String svgProfile36 = "assets/svg/profile_36.svg";
-
+  static String svgAdd = "assets/svg/add.svg";
+  static String svgTick = "assets/svg/tick.svg";
 }
