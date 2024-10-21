@@ -8,12 +8,16 @@ class NotesItem extends StatefulWidget {
   final String title;
   final String date;
   final bool initialStatus;
+  final ValueChanged<bool> onStatusChanged;
+  final isClickable;
 
   const NotesItem({
     super.key,
     required this.title,
     required this.date,
     required this.initialStatus,
+    required this.onStatusChanged,
+    this.isClickable = false
   });
 
   @override
@@ -30,9 +34,11 @@ class _NotesItemState extends State<NotesItem> {
   }
 
   void _onChanged(bool? newValue) {
+    if (!widget.isClickable) return;
     setState(() {
       _status = newValue ?? false;
     });
+    widget.onStatusChanged(_status);
   }
 
   @override
