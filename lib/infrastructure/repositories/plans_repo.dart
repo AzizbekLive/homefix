@@ -12,7 +12,7 @@ class PlansRepo implements IPlansFacade {
   PlansRepo._internal();
   factory PlansRepo() => _instance;
 
-  Future<SharedPreferences> get _prefs async => SharedPreferences.getInstance();
+  Future<SharedPreferences> get _prefs async => await SharedPreferences.getInstance();
 
   @override
   Future<void> createPlan(PlansCreate plan) async {
@@ -20,6 +20,9 @@ class PlansRepo implements IPlansFacade {
 
     final savedPlansJson = prefs.getString(_plansKey) ?? '{}';
     final Map<String, dynamic> savedPlans = jsonDecode(savedPlansJson);
+
+    final int newId = DateTime.now().millisecondsSinceEpoch;
+    plan.id = newId;
 
     savedPlans[plan.id.toString()] = plan.toJson();
 
@@ -55,15 +58,14 @@ class PlansRepo implements IPlansFacade {
   @override
   Future<void> updatePlan(PlansUpdate updatedPlan) async {
     final prefs = await _prefs;
-    List<String> savedPlans = prefs.getStringList(_plansKey) ?? [];
+    final savedPlansJson = prefs.getString(_plansKey) ?? '{}';
+    final Map<String, dynamic> savedPlans = jsonDecode(savedPlansJson);
 
-    savedPlans = savedPlans.map((planJson) {
-      final plan = PlansCreate.fromJson(jsonDecode(planJson));
-      return plan.id == updatedPlan.id
-          ? jsonEncode(updatedPlan.toJson())
-          : planJson;
-    }).toList();
-
-    await prefs.setStringList(_plansKey, savedPlans);
+    if (savedPlans.containsKey(updatedPlan.id.toString())) {
+      savedPlans[updatedPlan.id.toString()] = updatedPlan.toJson();
+      await prefs.setString(_plansKey, jsonEncode(savedPlans));
+    } else {
+      print('Plan with ID ${updatedPlan.id} not found for update.');
+    }
   }
 }
