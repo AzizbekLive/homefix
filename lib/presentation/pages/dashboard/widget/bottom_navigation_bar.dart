@@ -133,12 +133,12 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
                       width: maxWidth / _length,
                       child: Center(
                         child: Transform.translate(
-                          offset: Offset(0, -(1 - _buttonHide) * 80),
+                          offset: Offset(0, -(1 - _buttonHide) * 60),
                           child: Material(
                             color: widget.buttonBackgroundColor ?? widget.color,
                             type: MaterialType.circle,
                             child: Container(
-                              width: 60.0,
+                              width: 50.0,
                               height: 60.0,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
@@ -163,7 +163,7 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
                     Positioned(
                       left: 0,
                       right: 0,
-                      bottom: 0 - (75.0 - widget.height),
+                      bottom: 0 - (90.0 - widget.height),
                       child: CustomPaint(
                         painter: NavCustomPainter(
                             _pos, _length, widget.color, textDirection),
@@ -186,7 +186,7 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
                               length: _length,
                               index: widget.items.indexOf(item),
                               child: Padding(
-                                padding: const EdgeInsets.only(top: 8.0),
+                                padding: const EdgeInsets.only(top: 35.0),
                                 child: Center(child: item),
                               ),
                             );
