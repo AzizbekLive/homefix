@@ -1,0 +1,6 @@
+{
+  "short": "dd.MM.yyyy",
+  "medium": "d MMMM yyyy г.",
+  "long": "d MMMM yyyy г.",
+  "full": "EEEE, d MMMM yyyy г."
+}
