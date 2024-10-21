@@ -1,16 +1,16 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:homefix/domain/plans/i_plans_facade.dart';
 
 import '../../infrastructure/models/plans/create/plans_create.dart';
 import '../../infrastructure/models/plans/update/plans_update.dart';
-import '../../infrastructure/repositories/plans_repo.dart';
 
 part 'plans_event.dart';
 part 'plans_state.dart';
 part 'plans_bloc.freezed.dart';
 
 class PlansBloc extends Bloc<PlansEvent, PlansState> {
-  final PlansRepo plansRepo;
+  final IPlansFacade plansRepo;
 
   PlansBloc(this.plansRepo) : super(const PlansState.initial()) {
 

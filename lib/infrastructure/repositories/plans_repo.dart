@@ -4,7 +4,7 @@ import 'package:homefix/infrastructure/models/plans/create/plans_create.dart';
 import '../../domain/plans/i_plans_facade.dart';
 import '../models/plans/update/plans_update.dart';
 
-class PlansRepo implements PlansStorage {
+class PlansRepo implements IPlansFacade {
   static const String _plansKey = 'plans_key';
 
   // Singleton implementation
