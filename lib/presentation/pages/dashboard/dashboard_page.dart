@@ -49,6 +49,7 @@ class DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+
       body: _screens[_selectedIndex],
       bottomNavigationBar: CurvedNavigationBar(
         key: _bottomNavigationKey,

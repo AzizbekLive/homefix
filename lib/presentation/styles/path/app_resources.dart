@@ -11,4 +11,5 @@ class AppResources {
   static String svgProfile36 = "assets/svg/profile_36.svg";
   static String svgAdd = "assets/svg/add.svg";
   static String svgTick = "assets/svg/tick.svg";
+  static String svgArrowRight = "assets/svg/arrow_right.svg";
 }
